@@ -1,0 +1,26 @@
+<div class="column col-4">
+  <nav class="panel">
+    <p class="panel-heading">
+      Who to follow
+    </p>
+    <% @users.each do |user| %>
+      <div class="panel-block">
+        <article class="media d-flex align-items-center">
+          <div class="media-left">
+            <figure class="image is-32x32">
+              <img src="https://bulma.io/images/placeholders/64x64.png" alt="placeholder">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content d-flex align-items-center">
+              <p>
+                <strong><%= link_to user.fullname, user %></strong>
+                <small>@<%= user.username %></small>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </nav>
+</div>

@@ -1,0 +1,9 @@
+<%= simple_form_for(@tweet) do |f| %>
+<%= f.error_notification %>
+  <div class="field">
+    <div class="control">
+      <%= f.input :tweet, label: 'Tweet it', placeholder: 'Compose a tweet', class: 'form-group' %>
+    </div>
+  </div>
+  <%= f.submit 'Post', class: 'btn btn-primary'%>
+<% end %>

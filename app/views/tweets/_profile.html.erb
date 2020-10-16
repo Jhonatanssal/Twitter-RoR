@@ -1,0 +1,35 @@
+<nav class="panel bg-light">
+  <div class="panel-block p-3">
+    <article class="media d-flex align-items-center">
+      <div class="media-left">
+        <figure class="image">
+          <%= image_tag("https://bulma.io/images/placeholders/64x64.png", :alt => "rss feed", :class => 'profile-img') %>
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <strong><%= link_to current_user.fullname, user_path(current_user) %></strong><br>
+          <small>@<%= current_user.username %></small><br>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="panel-block d-flex justify-content-around mt-2">
+    <div class="media d-flex justify-content-around">
+      <div class="media-left d-flex flex-column align-items-center">
+        <h3 class="font-weight-bold">Followers</h3>
+        <p>100</p>
+      </div>
+
+      <div class="media-left d-flex flex-column align-items-center">
+        <h3 class="font-weight-bold">Following</h3>
+        <p>100</p>
+      </div>
+
+      <div class="media-left d-flex flex-column align-items-center">
+        <h3 class="font-weight-bold">Tweets</h3>
+        <p><%= current_user.tweets.count %> </p>
+      </div>
+    </div>
+  </div>
+</nav>
