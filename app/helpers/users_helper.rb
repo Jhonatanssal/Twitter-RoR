@@ -7,9 +7,9 @@ module UsersHelper
 
   def check
     if Follow.where(follower_id: current_user.id, followed_user_id: @user.id).exists?
-      link_to('Unfollow', "/follow/#{@user.id}", method: 'delete', class: 'btn btn-danger')
+      link_to('Unfollow', "/follow/#{@user.id}", method: 'delete', class: 'btn btn-danger text-white')
     elsif  current_user.id != @user.id
-      link_to('follow', "/follow/#{@user.id}", method: 'delete', class: 'btn btn-danger')
+      link_to('follow', "/follow/#{@user.id}", class: 'btn btn-primary text-white')
     else
     end
   end
