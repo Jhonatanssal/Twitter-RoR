@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   resources :tweets do
     resources :comments, only: [:create]
+    resources :likes, only: %i[create destroy]
   end
   root 'tweets#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

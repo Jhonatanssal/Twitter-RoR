@@ -3,7 +3,7 @@
     <article class="media d-flex align-items-center">
       <div class="media-left">
         <figure class="image">
-          <%= image_tag("https://bulma.io/images/placeholders/64x64.png", :alt => "rss feed", :class => 'profile-img') %>
+          <div class="gravatar" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', current_user.username), size: 64) %>) 0px 0px no-repeat; width:64px; height:64px;"></div>
         </figure>
       </div>
       <div class="media-content">

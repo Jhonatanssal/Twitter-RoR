@@ -21,4 +21,11 @@ module TweetsHelper
     end
   end
 
+  def edit_btn(tweet)
+
+    if tweet.user == current_user
+      render partial: 'edit_btn'
+    end
+  end
+
 end

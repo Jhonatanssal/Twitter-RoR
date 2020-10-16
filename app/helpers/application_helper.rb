@@ -13,4 +13,13 @@ module ApplicationHelper
       render 'tweets/profile'
     end
   end
+
+  def like_or_dislike(tweet)
+    like = Like.find_by(tweet: tweet, user: current_user)
+    if like
+      link_to("<i class=\"far fa-thumbs-down\"></i>".html_safe, tweet_like_path(id: like.id, tweet_id: tweet.id), method: :delete)
+    else
+      link_to("<i class=\"far fa-thumbs-up\"></i>".html_safe, tweet_likes_path(tweet_id: tweet.id), method: :post)
+    end
+  end
 end
