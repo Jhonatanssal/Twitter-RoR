@@ -16,8 +16,8 @@
       </div>
       <div class="media-content">
         <div class="content">
-          <strong><%= link_to tweet.user.fullname, user_path(tweet.user) %> </strong><br>
-          <small>@<%= tweet.user.username%></small>
+          <strong><%= link_to tweet.user.fullname.capitalize, user_path(tweet.user) %> </strong><br>
+          <small>@<%= tweet.user.username %></small>
         </div>
         <p><%= tweet.tweet %></p><br>
         <nav class="level">
@@ -31,7 +31,7 @@
               <% end %>
             <% end %>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <%= like_or_dislike(tweet) %>
+            <%= check_main(tweet) %>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <p>Likes: <%= tweet.likes.count %> </p>
   				</div>

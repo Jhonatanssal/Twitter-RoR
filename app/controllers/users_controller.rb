@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @tweets = @user.tweets
   end
 
   def new

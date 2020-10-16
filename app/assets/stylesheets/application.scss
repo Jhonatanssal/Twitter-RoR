@@ -28,7 +28,8 @@
 }
 
 .navv {
-  margin-left: 338px;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .login {
@@ -37,4 +38,15 @@
 
 .not {
   margin-top: 60px;
+}
+
+.right-panel {
+  height: 89vh;
+  margin-right: -30px;
+}
+
+.cover-img {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
 }

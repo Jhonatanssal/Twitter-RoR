@@ -1,0 +1,59 @@
+<nav class="right-panel panel">
+  <div class="panel-block p-3">
+    <article class="media d-flex align-items-center">
+      <div class="media-left">
+        <figure class="image">
+          <div class="gravatar" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', @user.username), size: 64) %>) 0px 0px no-repeat; width:64px; height:64px;"></div>
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <strong><%= @user.fullname.capitalize %></strong><br>
+          <small>@<%= @user.username %></small><br>
+        </div>
+        <%= edit_profile_btn %>
+        <%= follow_unfollow %>
+      </div>
+    </article>
+  </div>
+  <div class="panel-block d-flex justify-content-around mt-2">
+    <div class="media d-flex justify-content-around">
+      <div class="media-left d-flex flex-column align-items-center">
+        <h3 class="font-weight-bold">Followers</h3>
+        <p><%= @user.followers.count %></p>
+      </div>
+
+      <div class="media-left d-flex flex-column align-items-center">
+        <h3 class="font-weight-bold">Following</h3>
+        <p><%= @user.followings.count %></p>
+      </div>
+
+      <div class="media-left d-flex flex-column align-items-center">
+        <h3 class="font-weight-bold">Tweets</h3>
+        <p><%= @user.tweets.count %> </p>
+      </div>
+    </div>
+  </div>
+  <div class="media-left container mt-3">
+    <h3 class="font-weight-bold">Followers:</h3>
+    <% @user.followers.each do |user| %>
+      <div class="panel-block">
+        <article class="media d-flex align-items-center">
+          <div class="media-left">
+            <figure class="image is-50x50">
+                <div class="gravatar image is-64x64" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', user.username), size: 50) %>) 0px 0px no-repeat; width:50px; height:50px;"></div>
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content d-flex align-items-center">
+              <p>
+                <strong><%= link_to user.fullname, user %></strong> <br>
+                <small>@<%= user.username %></small>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </div>
+</nav>

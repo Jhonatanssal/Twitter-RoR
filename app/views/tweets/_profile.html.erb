@@ -8,7 +8,7 @@
       </div>
       <div class="media-content">
         <div class="content">
-          <strong><%= link_to current_user.fullname, user_path(current_user) %></strong><br>
+          <strong><%= link_to current_user.fullname.capitalize, user_path(current_user) %></strong><br>
           <small>@<%= current_user.username %></small><br>
         </div>
       </div>

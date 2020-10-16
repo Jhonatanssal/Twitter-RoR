@@ -22,9 +22,14 @@ module TweetsHelper
   end
 
   def edit_btn(tweet)
-
     if tweet.user == current_user
       render partial: 'edit_btn'
+    end
+  end
+
+  def follow_unfollow_check(user)
+    if current_user
+      follow_unfollow_main(user)
     end
   end
 
@@ -33,7 +38,14 @@ module TweetsHelper
       link_to('Unfollow', "/follow/#{user.id}", method: 'delete', class: 'btn btn-danger text-white')
     elsif current_user.id != user.id
       link_to('Follow', "/follow/#{user.id}", class: 'btn btn-primary text-white')
+    end
+  end
+
+  def users_lists
+    if current_user
+      render 'users_not_followed'
     else
+      render 'users_list'
     end
   end
 

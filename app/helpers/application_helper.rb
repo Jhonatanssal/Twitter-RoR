@@ -14,6 +14,12 @@ module ApplicationHelper
     end
   end
 
+  def check_main(tweet)
+    if current_user
+      like_or_dislike(tweet)
+    end
+  end
+
   def like_or_dislike(tweet)
     like = Like.find_by(tweet: tweet, user: current_user)
     if like
