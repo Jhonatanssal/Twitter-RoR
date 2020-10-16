@@ -34,8 +34,12 @@
   				</div>
   			</nav>
         <div class='tweet-comments-section'>
+
+          <p><b>Comments:</b></p>
         
-          <%= render partial: 'comments/comment', collection: tweet.comments %>
+          <div class="border rounded p-2">
+            <%= render partial: 'comments/comment', collection: tweet.comments %>
+          </div><br>
 
           <%= comments_form(tweet) %>
         </div>
