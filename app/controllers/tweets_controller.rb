@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
     if current_user
       @tweet = current_user.tweets.build
       @not_followed = User.all - current_user.followings
+      @not_followed.delete(current_user)
     end
     @users = User.all
   end
@@ -33,7 +34,7 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-      redirect_to @tweet, notice: 'Tweet was successfully updated.'
+      redirect_to root_path, notice: 'Tweet was successfully updated.'
     else
       render 'edit'
     end
