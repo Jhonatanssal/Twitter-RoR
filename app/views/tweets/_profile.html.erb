@@ -18,12 +18,12 @@
     <div class="media d-flex justify-content-around">
       <div class="media-left d-flex flex-column align-items-center">
         <h3 class="font-weight-bold">Followers</h3>
-        <p>100</p>
+        <p><%= current_user.followers.count %></p>
       </div>
 
       <div class="media-left d-flex flex-column align-items-center">
         <h3 class="font-weight-bold">Following</h3>
-        <p>100</p>
+        <p><%= current_user.followings.count %></p>
       </div>
 
       <div class="media-left d-flex flex-column align-items-center">
