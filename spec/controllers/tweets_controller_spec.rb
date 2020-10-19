@@ -14,6 +14,10 @@ RSpec.describe TweetsController, type: :controller do
         expect(valid_tweet).to be_valid
       end
 
+      it 'creates the tweet if valid' do
+        expect { Tweet.create(tweet: 'Testing tweet', user_id: user.id) }.to change(Tweet, :count).by(+1)
+      end
+
       it 'checks if the like can be created' do
         expect(response).to have_http_status(:ok)
       end
@@ -23,19 +27,28 @@ RSpec.describe TweetsController, type: :controller do
       it 'checks if the tweet cannot be created' do
         expect(invalid_tweet).to be_invalid
       end
+
+      it 'does not create the tweet if invalid' do
+        expect { Tweet.create(tweet: 'Testing tweet1', user_id: nil) }.not_to change(Tweet, :count)
+      end
     end
   end
 
   describe '#destroy' do
     it 'removes the tweet if exists' do
-      valid_tweet.delete
+      expect { valid_tweet.delete }.to change(Tweet, :count).by(-1)
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'removes the tweet if exists' do
+      expect { invalid_tweet.delete }.not_to change(Tweet, :count)
     end
   end
 
   describe '#update' do
     it 'updates the tweet if exists' do
-      valid_tweet.update(tweet: 'update test')
+      invalid_tweet.update(user_id: user.id)
+      expect(invalid_tweet).to be_valid
       expect(response).to have_http_status(:success)
     end
   end
