@@ -17,6 +17,4 @@ Rails.application.routes.draw do
 
   get '/follow/:id', to: 'follows#follow'
   delete '/follow/:id', to: 'follows#unfollow'
-
-  # resources :follows
 end

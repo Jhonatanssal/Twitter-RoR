@@ -47,7 +47,29 @@
           <div class="media-content">
             <div class="content d-flex align-items-center">
               <p>
-                <strong><%= link_to user.fullname, user %></strong> <br>
+                <strong><%= link_to user.fullname.capitalize, user %></strong> <br>
+                <small>@<%= user.username %></small>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </div>
+  <div class="media-left container mt-3">
+    <h3 class="font-weight-bold">Following:</h3>
+    <% @user.followings.each do |user| %>
+      <div class="panel-block">
+        <article class="media d-flex align-items-center">
+          <div class="media-left">
+            <figure class="image is-50x50">
+                <div class="gravatar image is-64x64" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', user.username), size: 50) %>) 0px 0px no-repeat; width:50px; height:50px;"></div>
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content d-flex align-items-center">
+              <p>
+                <strong><%= link_to user.fullname.capitalize, user %></strong> <br>
                 <small>@<%= user.username %></small>
               </p>
             </div>
