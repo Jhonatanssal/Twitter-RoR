@@ -12,18 +12,17 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="not notification is-primary global-notification col-9 float-right">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="not notification is-danger global-notification col-9 float-right">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
-
     <div class="container-fluid">
+      <% if flash[:notice] %>
+        <div class="not notification is-primary global-notification col-9 float-right">
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="not notification is-danger global-notification col-9 float-right">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
 
       <nav class="navv d-flex justify-content-between p-2 float-right bg-primary col-9 fixed-top">
         <%= link_to 'Home', root_path, class: 'text-dark font-weight-bold text-decoration-none btn btn-outline-light'%>
@@ -41,7 +40,7 @@
         <%= link_to 'Statistics', root_path, class: 'btn btn-outline-secondary text-white btn-block'%>
       </div>
 
-      <div class="mt-4 col-9 float-right">
+      <div class="col-9 float-right">
         <%= yield %>
       </div>
     </div>

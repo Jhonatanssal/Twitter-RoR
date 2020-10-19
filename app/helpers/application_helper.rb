@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def nav_btns
     if current_user
       link_to('Profile', user_path(current_user), class: 'text-dark text-decoration-none btn btn-light') + link_to('Log out', logout_path, class: 'text-dark text-decoration-none btn btn-light')
