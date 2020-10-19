@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :set_tweet, only: %i[show edit update destroy]
   before_action :user_login, except: %I[index show]
 
   def index
@@ -12,15 +12,13 @@ class TweetsController < ApplicationController
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @tweet = current_user.tweets.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @tweet = current_user.tweets.create(tweet_params)
@@ -46,17 +44,18 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:tweet).permit(:tweet)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
 
-    def user_login
-      redirect_to login_path if current_user.nil?
-    end
+  # Only allow a list of trusted parameters through.
+  def tweet_params
+    params.require(:tweet).permit(:tweet)
+  end
+
+  def user_login
+    redirect_to login_path if current_user.nil?
+  end
 end

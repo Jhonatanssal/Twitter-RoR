@@ -11,5 +11,14 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe TweetsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  User.delete_all
+  Tweet.delete_all
+  let!(:current_user) { User.create(username: 'test', fullname: 'testing') }
+  let!(:tweet) { Tweet.create(tweet: 'Testing', user_id: current_user.id) }
+
+  describe 'tweet form' do
+    it 'renders the tweet form' do
+      expect(helper.tweet_form).to render_template('tweets/form')
+    end
+  end
 end

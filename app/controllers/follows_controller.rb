@@ -1,3 +1,5 @@
+# rubocop: disable Style/GuardClause
+
 class FollowsController < ApplicationController
   def follow
     @user = User.find(params[:id])
@@ -14,3 +16,5 @@ class FollowsController < ApplicationController
     redirect_to @user, notice: "#{@user.fullname} Unfollowed!"
   end
 end
+
+# rubocop: enable Style/GuardClause

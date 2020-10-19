@@ -1,3 +1,5 @@
+# rubocop: disable Layout/LineLength
+
 module ApplicationHelper
   def nav_btns
     if current_user
@@ -8,23 +10,21 @@ module ApplicationHelper
   end
 
   def profile_box
-    if current_user
-      render 'tweets/profile'
-    end
+    render 'tweets/profile' if current_user
   end
 
   def check_main(tweet)
-    if current_user
-      like_or_dislike(tweet)
-    end
+    like_or_dislike(tweet) if current_user
   end
 
   def like_or_dislike(tweet)
     like = Like.find_by(tweet: tweet, user: current_user)
     if like
-      link_to("<i class=\"far fa-thumbs-down\"></i>".html_safe, tweet_like_path(id: like.id, tweet_id: tweet.id), method: :delete)
+      link_to('<i class="far fa-thumbs-down"></i>'.html_safe, tweet_like_path(id: like.id, tweet_id: tweet.id), method: :delete)
     else
-      link_to("<i class=\"far fa-thumbs-up\"></i>".html_safe, tweet_likes_path(tweet_id: tweet.id), method: :post)
+      link_to('<i class="far fa-thumbs-up"></i>'.html_safe, tweet_likes_path(tweet_id: tweet.id), method: :post)
     end
   end
 end
+
+# rubocop: enable Layout/LineLength
