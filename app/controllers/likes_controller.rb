@@ -15,7 +15,7 @@ class LikesController < ApplicationController
       @like.destroy
       redirect_to root_path, notice: 'You disliked a tweet.'
     else
-      redirect_to root_path, alert: 'You cannot dislike tweet that you did not like before.'
+      redirect_to root_path, alert: 'You cannot dislike tweet that, you did not like before.'
     end
   end
 end

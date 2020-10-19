@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bulma-rails', '~> 0.9.0'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'rails-controller-testing'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
 group :development, :test do
