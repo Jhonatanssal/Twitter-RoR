@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.create(comment_params).includes([:user])
+    @comment = current_user.comments.create(comment_params)
     @comment.tweet_id = params[:tweet_id]
 
     if @comment.save
