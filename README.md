@@ -20,7 +20,8 @@ Postgres: >=9.5
 
 To get a local copy up and running follow these simple example steps:
 
-- Go to https://github.com/jssarrazolaa/Twitter-RoR/tree/master and clone the repo
+- Go to https://github.com/jssarrazolaa/Twitter-RoR/tree/master and clone the repo using: <br>
+`git clone https://github.com/jssarrazolaa/Twitter-RoR.git` in your terminal.
 
 ### Setup
 
