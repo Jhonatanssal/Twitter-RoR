@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'follows_controller'
 
 RSpec.describe LikesController, type: :controller do
   Like.delete_all
