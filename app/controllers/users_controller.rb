@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def show
     @tweets = @user.tweets
     @tweets.each { |tweet| @comment = tweet.comments }
+    if current_user
+      @followed = current_user.followings
+      @followers = current_user.followers
+    end
   end
 
   def new
