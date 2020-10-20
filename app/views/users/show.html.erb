@@ -31,14 +31,7 @@
               <p><%= tweet.tweet %></p><br>
               <nav class="level">
                 <div class="level-left is-mobile">
-                  <% if tweet.user == current_user %>
-                    <%= link_to edit_tweet_path(tweet), class: "level-item" do %>
-                      <span class="icon"><i class="fas fa-pencil-alt"></i></span>
-                    <% end %>
-                    <%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweeet?" } do %>
-                        <span class="icon"><i class="far fa-trash-alt"></i></span>
-                    <% end %>
-                  <% end %>
+                  <%= edit_tweet_btn(tweet) %>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <%= check_main(tweet) %>
                   &nbsp;&nbsp;&nbsp;&nbsp;
@@ -47,13 +40,7 @@
               </nav>
               <div class='tweet-comments-section'>
 
-                <% unless tweet.comments.empty? %>
-                  <p><b>Comments:</b></p>
-                
-                  <div class="border rounded p-2">
-                    <%= render partial: 'comments/comment', collection: tweet.comments %>
-                  </div><br>
-                <% end %>
+                <%= comments(tweet) %>
 
                 <%= comments_form(tweet) %>
               </div>

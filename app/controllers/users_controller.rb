@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @tweets = @user.tweets
+    @tweets.each { |tweet| @comment = tweet.comments }
   end
 
   def new
