@@ -10,6 +10,10 @@
 
 https://dry-falls-69472.herokuapp.com
 
+## Screenshot
+
+![App](/app/assets/images/screenshot-ror.png)
+
 ### Prerequisites
 
 Ruby: 2.6.3
