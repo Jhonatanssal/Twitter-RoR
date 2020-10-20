@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all.order('created_at DESC')
     @users = User.all
     if current_user
-      @tweet = current_user.tweets.build
+      @tweet = current_user.tweets.new
       @not_followed = User.all - current_user.followings
       @not_followed.delete(current_user)
       @followed = current_user.followings

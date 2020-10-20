@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   Like.delete_all
   let!(:user) { User.create(username: 'Test', fullname: 'Testing') }
-  let!(:tweet) { Tweet.create(tweet: 'Testing specs', user_id: user.id) }
+  let!(:tweet) { Tweet.create(tweet: 'Testing specs', author_id: user.id) }
   let!(:valid_like) { Like.create(user_id: user.id, tweet_id: tweet.id) }
   let!(:invalid_like) { Like.create(user_id: user.id, tweet_id: tweet.id) }
   let!(:invalid_like1) { Like.create(user_id: nil, tweet_id: tweet.id) }

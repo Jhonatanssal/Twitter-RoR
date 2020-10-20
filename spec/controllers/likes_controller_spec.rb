@@ -4,7 +4,7 @@ RSpec.describe LikesController, type: :controller do
   Like.delete_all
 
   let!(:user) { User.create(username: 'Test', fullname: 'Testing') }
-  let!(:tweet) { Tweet.create(tweet: 'Testing tweet', user_id: user.id) }
+  let!(:tweet) { Tweet.create(tweet: 'Testing tweet', author_id: user.id) }
   let!(:valid_like) { Like.create(user_id: user.id, tweet_id: tweet.id) }
   let!(:invalid_like) { Like.create(user_id: nil, tweet_id: tweet.id) }
   let!(:remove_like) { Like.create(user_id: user.id, tweet_id: tweet.id) }

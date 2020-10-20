@@ -5,9 +5,9 @@ RSpec.describe Follow, type: :model do
   Follow.delete_all
   let!(:user) { User.create(username: 'Test', fullname: 'Testing') }
   let!(:user1) { User.create(username: 'Test1', fullname: 'Testing follows') }
-  let!(:valid_follow) { Follow.create(follower_id: user.id, followed_user_id: user1.id) }
-  let!(:invalid_follow) { Follow.create(follower_id: user.id, followed_user_id: user1.id) }
-  let!(:invalid_follow1) { Follow.create(follower_id: nil, followed_user_id: user1.id) }
+  let!(:valid_follow) { Follow.create(follower_id: user.id, followed_id: user1.id) }
+  let!(:invalid_follow) { Follow.create(follower_id: user.id, followed_id: user1.id) }
+  let!(:invalid_follow1) { Follow.create(follower_id: nil, followed_id: user1.id) }
 
   context "Valid follow" do
     it "checks if one user can follow other user" do

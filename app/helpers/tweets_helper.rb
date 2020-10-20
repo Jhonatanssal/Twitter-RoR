@@ -32,7 +32,7 @@ module TweetsHelper
   end
 
   def follow_unfollow_main(user)
-    if Follow.where(follower_id: current_user.id, followed_user_id: user.id).exists?
+    if Follow.where(follower_id: current_user.id, followed_id: user.id).exists?
       link_to('Unfollow', "/follow/#{user.id}", method: 'delete', class: 'btn btn-danger text-white')
     elsif current_user.id != user.id
       link_to('Follow', "/follow/#{user.id}", class: 'btn btn-primary text-white')

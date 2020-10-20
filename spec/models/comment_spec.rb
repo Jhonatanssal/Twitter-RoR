@@ -5,7 +5,7 @@ RSpec.describe Comment, type: :model do
   User.delete_all
   Tweet.delete_all
   let!(:user) { User.create(username: 'Test', fullname: 'Testing') }
-  let!(:tweet) { Tweet.create(tweet: 'Testing specs', user_id: user.id) }
+  let!(:tweet) { Tweet.create(tweet: 'Testing specs', author_id: user.id) }
   let!(:valid_comment) { Comment.create(content: 'Comment test', tweet_id: tweet.id, user_id: user.id) }
   let!(:invalid_comment) { Comment.create(content: nil, tweet_id: nil, user_id: nil) }
   let!(:invalid_comment1) { Comment.create(content: 'ab', tweet_id: tweet.id, user_id: user.id) }
