@@ -18,7 +18,7 @@ RSpec.describe TweetsController, type: :controller do
         expect { Tweet.create(tweet: 'Testing tweet', user_id: user.id) }.to change(Tweet, :count).by(+1)
       end
 
-      it 'checks if the like can be created' do
+      it 'checks if the tweet can be created' do
         expect(response).to have_http_status(:ok)
       end
     end
