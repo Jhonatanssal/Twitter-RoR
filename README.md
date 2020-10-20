@@ -8,7 +8,7 @@
 
 ## Live Demo
 
-https://capstone-ror.herokuapp.com/
+https://dry-falls-69472.herokuapp.com/users/3
 
 ### Prerequisites
 
