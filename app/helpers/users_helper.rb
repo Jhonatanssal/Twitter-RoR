@@ -22,6 +22,11 @@ module UsersHelper
       link_to edit_tweet_path(tweet), class: "level-item" do
         raw("<span class='icon'><i class='fas fa-pencil-alt'></i></span>")
       end
+    end
+  end
+
+  def delete_tweet_btn(tweet)
+    if tweet.user == current_user
       link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweeet?" } do
         raw("<span class='icon'><i class='far fa-trash-alt'></i></span>")
       end

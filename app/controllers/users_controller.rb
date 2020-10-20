@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @users = User.all
+    @users = User.all.includes([:comments, :tweets, :likes, :followings, :followers])
   end
 
   def show

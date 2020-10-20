@@ -31,6 +31,7 @@ gem 'bulma-rails', '~> 0.9.0'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'rails-controller-testing'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
+gem 'bullet', group: 'development'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

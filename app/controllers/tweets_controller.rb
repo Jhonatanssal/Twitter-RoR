@@ -3,14 +3,13 @@ class TweetsController < ApplicationController
   before_action :user_login, except: %I[index show]
 
   def index
-    @tweets = Tweet.all.order('created_at DESC')
-    @users = User.all
+    @tweets = Tweet.all.order('created_at DESC').includes([:user, :comments])
+    @users = User.all.includes([:followings, :followers, :comments])
+    @comments = Comment.all.includes([:user, :tweet])
     if current_user
       @tweet = current_user.tweets.new
       @not_followed = User.all - current_user.followings
       @not_followed.delete(current_user)
-      @followed = current_user.followings
-      @followers = current_user.followers
     end
   end
 
