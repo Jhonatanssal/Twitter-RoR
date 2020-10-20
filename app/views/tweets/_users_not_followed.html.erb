@@ -1,0 +1,27 @@
+<div class="column col-4">
+  <nav class="panel">
+    <p class="panel-heading">
+      Who to follow
+    </p>
+    <% @not_followed.each do |user| %>
+      <div class="panel-block">
+        <article class="media d-flex align-items-center">
+          <div class="media-left">
+            <figure class="image is-50x50">
+                <div class="gravatar image is-64x64" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', user.username), size: 50) %>) 0px 0px no-repeat; width:50px; height:50px;"></div>
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content d-flex align-items-center">
+              <p>
+                <strong><%= link_to user.fullname.capitalize, user %></strong> <br>
+                <small>@<%= user.username %></small>
+              </p>
+            </div>
+              <%= follow_unfollow_check(user) %>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </nav>
+</div>
