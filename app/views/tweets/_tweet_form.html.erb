@@ -1,0 +1,8 @@
+<article class="media box">
+  <figure class="media-left">
+    <div class="gravatar image is-64x64" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', current_user.username), size: 64) %>) 0px 0px no-repeat; width:64px; height:64px;"></div>
+  </figure>
+  <div class="media-content">
+    <%= render 'form' %>
+  </div>
+</article>

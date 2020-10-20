@@ -1,0 +1,13 @@
+<div class="d-flex flex-column col-4 mx-auto login">
+  <p id="alert"><%= alert %></p>
+  <h1 class="text-center font-weight-bolder">Login</h1>
+  <%= form_tag sessions_path do |form| %>
+    <div class="field">
+      <%= label_tag :Username, nil, class: 'text-left' %>
+      <%= text_field_tag :username, nil, class: 'form-control' %>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Login', class: 'btn btn-success btn-block' %>
+    </div>
+  <% end %>
+</div>
