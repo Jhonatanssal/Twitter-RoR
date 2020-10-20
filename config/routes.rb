@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'tweets#index'
 
-  resources :users
+  resources :users, only: [:new, :create, :destroy, :show, :update]
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'sessions/new'
