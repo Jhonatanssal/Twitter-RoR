@@ -1,4 +1,5 @@
 # rubocop: disable Layout/LineLength
+# rubocop: disable Style/GuardClause
 
 module TweetsHelper
   def tweet_form
@@ -49,7 +50,7 @@ module TweetsHelper
 
   def edit_tweet_btn_feed(tweet)
     if tweet.user == current_user
-      link_to edit_tweet_path(tweet), class: "level-item" do
+      link_to edit_tweet_path(tweet), class: 'level-item' do
         raw("<span class='icon'><i class='fas fa-pencil-alt'></i></span>")
       end
     end
@@ -57,7 +58,7 @@ module TweetsHelper
 
   def delete_tweet_btn_feed(tweet)
     if tweet.user == current_user
-      link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweeet?" } do
+      link_to tweet, method: :delete, data: { confirm: 'Are you sure you want to delete this tweeet?' } do
         raw("<span class='icon'><i class='far fa-trash-alt'></i></span>")
       end
     end
@@ -65,3 +66,4 @@ module TweetsHelper
 end
 
 # rubocop: enable Layout/LineLength
+# rubocop: enable Style/GuardClause

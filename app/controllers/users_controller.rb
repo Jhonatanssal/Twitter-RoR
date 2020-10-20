@@ -1,8 +1,10 @@
+# rubocop: disable Style/GuardClause
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @users = User.all.includes([:comments, :tweets, :likes, :followings, :followers])
+    @users = User.all.includes(%i[comments tweets likes followings followers])
   end
 
   def show
@@ -54,3 +56,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :fullname)
   end
 end
+
+# rubocop: enable Style/GuardClause

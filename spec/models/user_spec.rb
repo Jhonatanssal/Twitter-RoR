@@ -8,22 +8,22 @@ RSpec.describe User, type: :model do
   let!(:invalid_user1) { User.create(username: nil, fullname: 'Nuna') }
   let!(:invalid_user2) { User.create(username: 'Chris', fullname: nil) }
 
-  context "Valid user" do
-    it "checks the uniqueness of username and presence of username and fullname" do
+  context 'Valid user' do
+    it 'checks the uniqueness of username and presence of username and fullname' do
       expect(valid_user).to be_valid
     end
   end
 
-  context "Invalid user" do
-    it "checks the uniqueness of username" do
+  context 'Invalid user' do
+    it 'checks the uniqueness of username' do
       expect(invalid_user).to be_invalid
     end
 
-    it "checks the presence of username" do
+    it 'checks the presence of username' do
       expect(invalid_user1).to be_invalid
     end
 
-    it "checks the presence of fullname" do
+    it 'checks the presence of fullname' do
       expect(invalid_user2).to be_invalid
     end
   end

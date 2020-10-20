@@ -8,20 +8,19 @@ RSpec.describe Tweet, type: :model do
   let!(:invalid_tweet) { Tweet.create(tweet: 'Testing tweet1', author_id: nil) }
   let!(:invalid_tweet1) { Tweet.create(tweet: 'T1', author_id: nil) }
 
-  context "Valid tweet" do
-    it "validates presence of user_id and tweet length" do
+  context 'Valid tweet' do
+    it 'validates presence of user_id and tweet length' do
       expect(valid_tweet).to be_valid
     end
   end
 
-  context "Invalid tweet" do
-    it "validates presence of user_id" do
+  context 'Invalid tweet' do
+    it 'validates presence of user_id' do
       expect(invalid_tweet).to be_invalid
     end
 
-    it "validates length of the tweet" do
+    it 'validates length of the tweet' do
       expect(invalid_tweet1).to be_invalid
     end
   end
-
 end
