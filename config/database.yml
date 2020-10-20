@@ -29,19 +29,19 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  # username: jhonatan
+  username: jhonatan
 
   # The password associated with the postgres role (username).
-  # password: 6904
+  password: 6904
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+  host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: Twitter_RoR_production
-  username: Twitter_RoR
+  username: jhonatan
   password: <%= ENV['TWITTER_ROR_DATABASE_PASSWORD'] %>
