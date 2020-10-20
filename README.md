@@ -8,7 +8,7 @@
 
 ## Live Demo
 
-https://dry-falls-69472.herokuapp.com/users/3
+https://dry-falls-69472.herokuapp.com
 
 ### Prerequisites
 

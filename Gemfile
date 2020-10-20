@@ -49,10 +49,6 @@ group :development do
 end
 
 group :production do
-<<<<<<< HEAD
-=======
-  gem 'pg' # dont want sqlite in production
->>>>>>> 56e0f9520f2ba1af1819991bbcd67725e217828e
   gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
   gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
 end
