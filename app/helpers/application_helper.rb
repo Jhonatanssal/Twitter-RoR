@@ -1,4 +1,5 @@
 # rubocop: disable Layout/LineLength
+# rubocop: disable Style/GuardClause
 
 module ApplicationHelper
   def home_btn
@@ -48,3 +49,4 @@ module ApplicationHelper
 end
 
 # rubocop: enable Layout/LineLength
+# rubocop: enable Style/GuardClause
