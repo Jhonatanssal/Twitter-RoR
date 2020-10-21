@@ -1,6 +1,6 @@
 <div class="tweet-comments py-2">
   <p>
-    <span> <%= comment.created_at.strftime("%h/%d/%y") %> </span>
+    <span> <%= date(comment) %> </span>
   </p>
   <p>
     <b><%= link_to comment.user.fullname.capitalize, user_path(comment.user) %>:</b> <%= comment.content %>

@@ -5,8 +5,8 @@ RSpec.describe TweetsController, type: :controller do
   User.delete_all
 
   let!(:user) { User.create(username: 'Test', fullname: 'Testing') }
-  let!(:valid_tweet) { Tweet.create(tweet: 'Testing tweet', user_id: user.id) }
-  let!(:invalid_tweet) { Tweet.create(tweet: 'Testing tweet1', user_id: nil) }
+  let!(:valid_tweet) { Tweet.create(tweet: 'Testing tweet', author_id: user.id) }
+  let!(:invalid_tweet) { Tweet.create(tweet: 'Testing tweet1', author_id: nil) }
 
   describe '#create' do
     context 'Valid tweet' do
@@ -15,10 +15,10 @@ RSpec.describe TweetsController, type: :controller do
       end
 
       it 'creates the tweet if valid' do
-        expect { Tweet.create(tweet: 'Testing tweet', user_id: user.id) }.to change(Tweet, :count).by(+1)
+        expect { Tweet.create(tweet: 'Testing tweet', author_id: user.id) }.to change(Tweet, :count).by(+1)
       end
 
-      it 'checks if the like can be created' do
+      it 'checks if the tweet can be created' do
         expect(response).to have_http_status(:ok)
       end
     end
@@ -29,7 +29,7 @@ RSpec.describe TweetsController, type: :controller do
       end
 
       it 'does not create the tweet if invalid' do
-        expect { Tweet.create(tweet: 'Testing tweet1', user_id: nil) }.not_to change(Tweet, :count)
+        expect { Tweet.create(tweet: 'Testing tweet1', author_id: nil) }.not_to change(Tweet, :count)
       end
     end
   end
@@ -47,7 +47,7 @@ RSpec.describe TweetsController, type: :controller do
 
   describe '#update' do
     it 'updates the tweet if exists' do
-      invalid_tweet.update(user_id: user.id)
+      invalid_tweet.update(author_id: user.id)
       expect(invalid_tweet).to be_valid
       expect(response).to have_http_status(:success)
     end

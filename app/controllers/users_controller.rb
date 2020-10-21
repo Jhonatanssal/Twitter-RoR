@@ -1,12 +1,19 @@
+# rubocop: disable Style/GuardClause
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @users = User.all
+    @users = User.all.includes(%i[comments tweets likes followings followers])
   end
 
   def show
     @tweets = @user.tweets
+    @tweets.each { |tweet| @comment = tweet.comments }
+    if current_user
+      @followed = current_user.followings
+      @followers = current_user.followers
+    end
   end
 
   def new
@@ -19,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to @user, notice: 'User was successfully created.'
     else
       render 'new'
@@ -48,3 +56,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :fullname)
   end
 end
+
+# rubocop: enable Style/GuardClause

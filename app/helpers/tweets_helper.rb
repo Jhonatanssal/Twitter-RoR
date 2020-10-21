@@ -1,4 +1,5 @@
 # rubocop: disable Layout/LineLength
+# rubocop: disable Style/GuardClause
 
 module TweetsHelper
   def tweet_form
@@ -32,7 +33,7 @@ module TweetsHelper
   end
 
   def follow_unfollow_main(user)
-    if Follow.where(follower_id: current_user.id, followed_user_id: user.id).exists?
+    if Follow.where(follower_id: current_user.id, followed_id: user.id).exists?
       link_to('Unfollow', "/follow/#{user.id}", method: 'delete', class: 'btn btn-danger text-white')
     elsif current_user.id != user.id
       link_to('Follow', "/follow/#{user.id}", class: 'btn btn-primary text-white')
@@ -46,6 +47,23 @@ module TweetsHelper
       render 'users_list'
     end
   end
+
+  def edit_tweet_btn_feed(tweet)
+    if tweet.user == current_user
+      link_to edit_tweet_path(tweet), class: 'level-item' do
+        raw("<span class='icon'><i class='fas fa-pencil-alt'></i></span>")
+      end
+    end
+  end
+
+  def delete_tweet_btn_feed(tweet)
+    if tweet.user == current_user
+      link_to tweet, method: :delete, data: { confirm: 'Are you sure you want to delete this tweeet?' } do
+        raw("<span class='icon'><i class='far fa-trash-alt'></i></span>")
+      end
+    end
+  end
 end
 
 # rubocop: enable Layout/LineLength
+# rubocop: enable Style/GuardClause

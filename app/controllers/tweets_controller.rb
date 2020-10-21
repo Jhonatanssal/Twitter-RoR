@@ -1,15 +1,18 @@
+# rubocop: disable Style/GuardClause
+
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[show edit update destroy]
   before_action :user_login, except: %I[index show]
 
   def index
-    @tweets = Tweet.all.order('created_at DESC')
+    @tweets = Tweet.all.order('created_at DESC').includes(%i[user comments])
+    @users = User.order('created_at DESC').includes(%i[followings followers comments])
+    @comments = Comment.all.includes(%i[user tweet])
     if current_user
-      @tweet = current_user.tweets.build
-      @not_followed = User.all - current_user.followings
+      @tweet = current_user.tweets.new
+      @not_followed = User.all.order('created_at DESC') - current_user.followings
       @not_followed.delete(current_user)
     end
-    @users = User.all
   end
 
   def show; end
@@ -59,3 +62,5 @@ class TweetsController < ApplicationController
     redirect_to login_path if current_user.nil?
   end
 end
+
+# rubocop: enable Style/GuardClause

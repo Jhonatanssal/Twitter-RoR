@@ -5,8 +5,8 @@ RSpec.describe FollowsController, type: :controller do
 
   let!(:user) { User.create(username: 'Test', fullname: 'Testing') }
   let!(:user1) { User.create(username: 'Test1', fullname: 'Testing1') }
-  let!(:valid_follow) { Follow.create(follower_id: user.id, followed_user_id: user1.id) }
-  let!(:invalid_follow) { Follow.create(follower_id: nil, followed_user_id: nil) }
+  let!(:valid_follow) { Follow.create(follower_id: user.id, followed_id: user1.id) }
+  let!(:invalid_follow) { Follow.create(follower_id: nil, followed_id: nil) }
 
   describe '#follow' do
     context 'Valid follow' do
