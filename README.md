@@ -8,7 +8,7 @@
 
 ## Live Demo
 
-https://dry-falls-69472.herokuapp.com
+https://glacial-meadow-24172.herokuapp.com/
 
 ## Screenshot
 
