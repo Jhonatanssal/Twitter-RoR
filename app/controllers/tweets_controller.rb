@@ -6,11 +6,11 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all.order('created_at DESC').includes(%i[user comments])
-    @users = User.all.includes(%i[followings followers comments])
+    @users = User.order('created_at DESC').includes(%i[followings followers comments])
     @comments = Comment.all.includes(%i[user tweet])
     if current_user
       @tweet = current_user.tweets.new
-      @not_followed = User.all - current_user.followings
+      @not_followed = User.all.order('created_at DESC') - current_user.followings
       @not_followed.delete(current_user)
     end
   end
